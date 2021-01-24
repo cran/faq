@@ -1,19 +1,29 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# faq
+# faq <img src="faq_logo.png"  width="180px" align="right"/>
 
-<!-- badges: start -->
-
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/faq)](https://cran.r-project.org/package=faq)
+[![Rdoc](https://www.rdocumentation.org/badges/version/faq)](https://www.rdocumentation.org/packages/faq) 
+[![Download](https://cranlogs.r-pkg.org/badges/grand-total/faq)](https://cranlogs.r-pkg.org/badges/grand-total/faq)
 <!-- badges: end -->
 
 This is package is to create a FAQ (Frequently Asked Questions) page for
 Shiny application with desired data.frame.
 
+Live podcast tutorial on 25:33 : https://shinydevseries.com/post/episode-16-jmclellan/
+
 ## Installation
 
+from CRAN
 ``` r
 install.packages("faq")
+```
+Dev version
+
+``` r
+devtools::install_github("jienagu/faq")
 ```
 
 ## Introduction
@@ -33,12 +43,21 @@ df <- data.frame(
 faq::faq(data = df, elementId = "faq", faqtitle = "Frequently Asked Questions")
 ```
 
-<!--html_preserve-->
+![demo_gif](faq_gif.gif)
 
-<div id="faq" class="faq html-widget" style="width:100%;height:480px;">
+## Update Announcement
+Considering this package supports multiple languages, now user can define the text on Expand All/Collapse All button on Dev version. See here is an example:
 
-</div>
-
-<script type="application/json" data-for="faq">{"x":{"data":{"question":["Question1","Question2","Question3"],"answer":["answer for question1","question2 answer","answer3"]},"faqtitle":"Frequently Asked Questions"},"evals":[],"jsHooks":[]}</script>
-
-<!--/html_preserve-->
+```
+devtools::install_github("jienagu/faq")
+library(faq)
+df <- data.frame(
+  question = c("Question1", "Question2", "Question3"),
+  answer = c("answer for question1", 
+             "question2 answer", 
+             "answer3")
+)
+faq::faq(data = df, elementId = "faq", faqtitle = "Frequently Asked Questions",
+         expand_all_button_text = "+ montrer tout", 
+         collapse_all_button_text = "- cacher tout")
+```

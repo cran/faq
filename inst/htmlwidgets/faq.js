@@ -34,18 +34,18 @@ faq.appendChild(faqtitle);
 
  let faqallexpand = document.createElement("button");
     faqallexpand.classList.add("faq-expand-all");
-    faqallexpand.innerHTML = "+ Expand All";
+    faqallexpand.innerHTML = x.expand_all_button_text;
 
     var allcontent = document.getElementsByClassName("faqcontent");
     var allcollapsible = document.getElementsByClassName("faqcollapsible");
     faqallexpand.addEventListener("click", function() {
-      if (faqallexpand.innerHTML === "+ Expand All") {
-              faqallexpand.innerHTML = "- Collapse All";
+      if (faqallexpand.innerHTML === x.expand_all_button_text) {
+             faqallexpand.innerHTML = x.collapse_all_button_text;
             } else {
-             faqallexpand.innerHTML = "+ Expand All";
+             faqallexpand.innerHTML = x.expand_all_button_text;
             }
     for (i = 0; i < allcontent.length; i++) {
-      if (faqallexpand.innerHTML === "+ Expand All"){
+      if (faqallexpand.innerHTML === x.expand_all_button_text){
         allcontent[i].style.maxHeight = null;
         allcollapsible[i].classList.remove("active");
       } else {
@@ -80,6 +80,7 @@ for (var i = 0; i < jsonData.answer.length; i++) {
       faqcontent.style.maxHeight = faqcontent.scrollHeight + "px";
     }
   });
+  contentdiv.style.background = x.content_background_color;
   wrapperdiv.appendChild(questiondiv);
   wrapperdiv.appendChild(contentdiv);
   faq.appendChild(wrapperdiv);
